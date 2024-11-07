@@ -3,8 +3,8 @@
 
 This Django and CSS-based application is designed to streamline and optimize system management processes. Developed for the Information Management 2 finals, it offers a robust and user-friendly interface.
 
-```
-```
+---
+
 ## Maintaining Code Synchronization with GitHub
 To ensure seamless collaboration and code integrity, follow these steps to keep your local repository aligned with the remote GitHub repository:
 
