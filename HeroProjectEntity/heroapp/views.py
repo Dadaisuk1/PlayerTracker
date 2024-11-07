@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Hero
 from .forms import HeroForm
 
+def landing_page(request):
+    return render(request, 'HeroApp/landing_page.html')
+
 # READ - List all heroes
 def hero_list(request):
     heroes = Hero.objects.all()

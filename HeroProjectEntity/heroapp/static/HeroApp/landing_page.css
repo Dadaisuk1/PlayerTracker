@@ -1,0 +1,129 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a full-screen background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #4A90E2, #9013FE);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Main container for the landing page */
+.container {
+    text-align: center;
+    padding: 50px 20px; /* Add padding to the container */
+}
+
+.all-games {
+    font-size: 48px;
+    font-weight: bold;
+    color: #D1F1FF; /* Dark color for the title */
+    margin-bottom: 40px; /* Space between the title and the images */
+}
+
+.game-card {
+    display: inline-block;
+    margin: 20px;
+    width: 290px;
+    text-align: center;
+}
+
+.game-image {
+    width: 290px;
+    height: 400px;
+    object-fit: cover; /* Make sure the image covers the area without distortion */
+    border-radius: 20px; /* Optional: Add rounded corners to the image */
+    border: solid 4px #D1F1FF
+}
+
+.game-title {
+    font-size: 18px;
+    margin-top: 10px; /* Space between the image and the title */
+    color: #D1F1FF; /* Use the same blue as the logo */
+    font-weight: bold;
+}
+
+
+/* Navigation Bar Styles */
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.146);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px; /* Adjust the size of the logo */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Optional: Capitalize the text */
+}
+
+.player {
+    color: white; /* Set 'Player' to white */
+}
+
+.tracker {
+    color: #0063FF; /* Set 'Tracker' to blue */
+}
+
+.navbar img {
+    width: 50px;
+    height: auto;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #0063FF;
+}
+
+.navbar .auth-links a {
+    background-color: #0063FF;
+    color: #D1F1FF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .auth-links a:hover {
+    background-color: #0051D6;
+}
+
+/* Main content styling (to prevent overlap with navbar) */
+body {
+    margin-top: 70px;
+}
