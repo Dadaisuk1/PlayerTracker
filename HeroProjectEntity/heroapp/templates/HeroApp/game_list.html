@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Games</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/PlayerTracker.png' %}">
+    <link rel="stylesheet" href="{% static 'HeroApp/landing_page.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <span class="player">Player</span><span class="tracker">Tracker</span>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="auth-links">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Landing Page Content -->
+    <div class="container">
+        <h1 class="all-games">All Games</h1>
+
+        <!-- Loop through the games and display each one in a card -->
+        {% for game in games %}
+        <div class="game-card">
+            <img src="{% static 'images/' %}{{ game.image }}" alt="{{ game.name }}" class="game-image">
+            <h2 class="game-title">{{ game.name }}</h2>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

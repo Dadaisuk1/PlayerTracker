@@ -1,6 +1,46 @@
 from django.shortcuts import render, redirect, get_object_or_404
+
 from .models import Hero
 from .forms import HeroForm
+
+from .models import Game
+from .forms import GameForm
+
+# READ - List all games
+def game_list(request):
+    games = Game.objects.all()
+    return render(request, 'HeroApp/game_list.html', {'games': games})
+
+# CREATE - Add a new game
+def game_create(request):
+    if request.method == 'POST':
+        form = GameForm(request.POST, request.FILES)  # Handle file uploads
+        if form.is_valid():
+            form.save()
+            return redirect('game_list')  # Redirect to the game list page
+    else:
+        form = GameForm()
+    return render(request, 'HeroApp/game_create.html', {'form': form})
+
+# UPDATE - Edit an existing game
+def game_update(request, id):
+    game = get_object_or_404(Game, id=id)
+    if request.method == 'POST':
+        form = GameForm(request.POST, instance=game)
+        if form.is_valid():
+            form.save()
+            return redirect('game_list')
+    else:
+        form = GameForm(instance=game)
+    return render(request, 'HeroApp/game_form.html', {'form': form})
+
+# DELETE - Remove a game
+def game_delete(request, id):
+    game = get_object_or_404(Game, id=id)
+    if request.method == 'POST':
+        game.delete()
+        return redirect('game_list')
+    return render(request, 'HeroApp/game_confirm_delete.html', {'game': game})
 
 def landing_page(request):
     return render(request, 'HeroApp/landing_page.html')
