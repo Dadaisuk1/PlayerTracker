@@ -1,5 +1,6 @@
 
-## Player Tracker System - DJANGO + CSSA Comprehensive System Management Solution
+## Player Tracker System - DJANGO + CSS
+>A Comprehensive System Management Solution
 
 This Django and CSS-based application is designed to streamline and optimize system management processes. Developed for the Information Management 2 finals, it offers a robust and user-friendly interface.
 
