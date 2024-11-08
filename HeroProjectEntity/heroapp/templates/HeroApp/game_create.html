@@ -1,16 +1,46 @@
-<!-- game_create.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Create Game</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/PlayerTracker.png' %}">
+    <link rel="stylesheet" href="{% static 'HeroApp/create.css' %}">
 </head>
 <body>
-    <h1>Create New Game</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Game</button>
-    </form>
+    <div class="container">
+        <h1>Create New Game</h1>
+        <form method="post" enctype="multipart/form-data" id="gameForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <!-- Add an id to the button and disable it initially -->
+            <button type="submit" class="button" id="addGameButton" disabled>Add Game</button>
+        </form>
+    </div>
+
+    <!-- JavaScript to enable button after typing -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("gameForm");
+            const button = document.getElementById("addGameButton");
+
+            // Add input event listener to each input field in the form
+            form.addEventListener("input", function () {
+                let formFilled = false;
+
+                // Check if at least one input has a value
+                for (const input of form.elements) {
+                    if (input.type !== "submit" && input.value.trim() !== "") {
+                        formFilled = true;
+                        break;
+                    }
+                }
+
+                // Enable or disable the button based on formFilled
+                button.disabled = !formFilled;
+            });
+        });
+    </script>
 </body>
 </html>

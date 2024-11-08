@@ -12,45 +12,79 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     color: #fff;
+    margin-top: 70px; /* To prevent overlap with navbar */
 }
 
 /* Main container for the landing page */
 .container {
     text-align: center;
-    padding: 50px 20px; /* Add padding to the container */
+    padding: 50px 20px;
+    width: 100%;
 }
 
-.all-games {
+/* Main title for "All Games" */
+.all-games, h1 {
     font-size: 48px;
     font-weight: bold;
-    color: #D1F1FF; /* Dark color for the title */
-    margin-bottom: 40px; /* Space between the title and the images */
+    color: #D1F1FF;
+    margin-bottom: 40px;
 }
 
+/* Game card styles */
 .game-card {
     display: inline-block;
     margin: 20px;
     width: 290px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .game-image {
     width: 290px;
     height: 400px;
-    object-fit: cover; /* Make sure the image covers the area without distortion */
-    border-radius: 20px; /* Optional: Add rounded corners to the image */
-    border: solid 4px #D1F1FF
+    object-fit: cover;
+    border-radius: 20px;
+    border: solid 4px #D1F1FF;
 }
 
 .game-title {
     font-size: 18px;
-    margin-top: 10px; /* Space between the image and the title */
-    color: #D1F1FF; /* Use the same blue as the logo */
+    margin-top: 10px;
+    color: #D1F1FF;
     font-weight: bold;
 }
 
+/* Button styles inside game cards */
+.button-group {
+    margin-top: 15px;
+}
+
+.button-group a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0063FF;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button-group a:hover {
+    background-color: #0051D6;
+}
+
+/* Error message style */
+.error-message {
+    color: red;
+    font-size: 1rem;
+}
 
 /* Navigation Bar Styles */
 .navbar {
@@ -69,17 +103,17 @@ body {
 }
 
 .logo {
-    font-size: 24px; /* Adjust the size of the logo */
-    font-weight: bold; /* Make the text bold */
-    text-transform: uppercase; /* Optional: Capitalize the text */
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .player {
-    color: white; /* Set 'Player' to white */
+    color: white;
 }
 
 .tracker {
-    color: #0063FF; /* Set 'Tracker' to blue */
+    color: #0063FF;
 }
 
 .navbar img {
@@ -123,7 +157,51 @@ body {
     background-color: #0051D6;
 }
 
-/* Main content styling (to prevent overlap with navbar) */
-body {
-    margin-top: 70px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .game-card {
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
+
+/* Styling for "Create Game" and other buttons */
+.create-button a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0063FF;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Add margin if needed */
+}
+
+.create-button a:hover {
+    background-color: #0051D6;
+}
+
+/* Button styles inside game cards */
+.button-group a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0063FF;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button-group a:hover {
+    background-color: #0051D6;
 }

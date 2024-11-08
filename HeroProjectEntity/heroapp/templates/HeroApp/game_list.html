@@ -6,7 +6,7 @@
     {% load static %}
     <link rel="icon" href="{% static 'images/PlayerTracker.png' %}">
     <link rel="stylesheet" href="{% static 'HeroApp/landing_page.css' %}">
-</head>
+</head> 
 <body>
     <!-- Navigation Bar -->
     <div class="navbar">
@@ -33,10 +33,23 @@
         <!-- Loop through the games and display each one in a card -->
         {% for game in games %}
         <div class="game-card">
-            <img src="{% static 'images/' %}{{ game.image }}" alt="{{ game.name }}" class="game-image">
-            <h2 class="game-title">{{ game.name }}</h2>
-        </div>
+            <img src="{% static 'images/' %}{{ game.image }}" alt="{{ game.game_name }}" class="game-image">
+            <h2 class="game-title">{{ game.game_name }}</h2>
+            <!-- Only show buttons if game.id is available -->
+            {% if game.game_id %}
+            <div class="button-group">
+                <a href="{% url 'game_update' game.game_id %}">Update</a>
+                <a href="{% url 'game_delete' game.game_id %}">Delete</a>
+            </div>
+            {% else %}
+            <p class="error-message">Game ID is missing.</p>
+            {% endif %}
+        </div>        
         {% endfor %}
+        
+        <div class="create-button">
+            <a href="{% url 'game_create' %}" class="button-group">Create Game</a>
+        </div>        
     </div>
 </body>
 </html>

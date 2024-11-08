@@ -5,7 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.landing_page, name='landing_page'),  # Landing page as the root URL
+    # path('', views.landing_page, name='landing_page'),  # Landing page as the root URL
+    path('', views.game_list, name='game_list'),
 
     # Hero URLs
     path('heroes/', views.hero_list, name='hero_list'),
@@ -16,8 +17,8 @@ urlpatterns = [
     # Game URLs
     path('games/', views.game_list, name='game_list'),
     path('game/create/', views.game_create, name='game_create'),
-    path('game/update/<int:id>/', views.game_update, name='game_update'),
-    path('game/delete/<int:id>/', views.game_delete, name='game_delete'),
+    path('game/update/<int:game_id>/', views.game_update, name='game_update'),
+    path('game/delete/<int:game_id>/', views.game_delete, name='game_delete'),
 ]
 
 if settings.DEBUG:

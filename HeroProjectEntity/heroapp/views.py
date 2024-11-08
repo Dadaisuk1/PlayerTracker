@@ -1,10 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
-from .models import Hero
-from .forms import HeroForm
-
-from .models import Game
-from .forms import GameForm
+from .models import Hero, Game
+from .forms import HeroForm, GameForm
 
 # READ - List all games
 def game_list(request):
@@ -23,8 +19,8 @@ def game_create(request):
     return render(request, 'HeroApp/game_create.html', {'form': form})
 
 # UPDATE - Edit an existing game
-def game_update(request, id):
-    game = get_object_or_404(Game, id=id)
+def game_update(request, game_id):  # Use game_id instead of id
+    game = get_object_or_404(Game, game_id=game_id)  # Use game_id instead of id
     if request.method == 'POST':
         form = GameForm(request.POST, instance=game)
         if form.is_valid():
@@ -35,8 +31,8 @@ def game_update(request, id):
     return render(request, 'HeroApp/game_form.html', {'form': form})
 
 # DELETE - Remove a game
-def game_delete(request, id):
-    game = get_object_or_404(Game, id=id)
+def game_delete(request, game_id):  # Use game_id instead of id
+    game = get_object_or_404(Game, game_id=game_id)  # Use game_id instead of id
     if request.method == 'POST':
         game.delete()
         return redirect('game_list')
